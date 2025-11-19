@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalStores - Sistema de Caixa</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>LocalStores</h2>
+        <button onclick="showSection('dashboard')">Dashboard</button>
+        <button onclick="showSection('products')">Produtos</button>
+        <button onclick="showSection('sales')">Vendas</button>
+        <button onclick="showSection('stores')">Lojas</button>
+    </div>
+<div id="dashboard" class="section">
+    <h1>Dashboard</h1>
+
+    <h3>Vendas por Dia</h3>
+    <table id="daily-table">
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Total Vendas (R$)</th>
+                <th>Lucro Estimado (R$)</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <h3>Vendas por Semana</h3>
+    <table id="weekly-table">
+        <thead>
+            <tr>
+                <th>Semana</th>
+                <th>Total Vendas (R$)</th>
+                <th>Lucro Estimado (R$)</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <h3>Vendas por Mês</h3>
+    <table id="monthly-table">
+        <thead>
+            <tr>
+                <th>Mês</th>
+                <th>Total Vendas (R$)</th>
+                <th>Lucro Estimado (R$)</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <div class="totals">
+        <p>Total Geral Vendas: R$ <span id="totalSales">0.00</span></p>
+        <p>Total Geral Lucro: R$ <span id="totalProfit">0.00</span></p>
+    </div>
+</div>
+
+        <div id="products" class="section" style="display:none;">
+            <h1>Produtos</h1>
+            <input type="text" id="product-name" placeholder="Nome do produto">
+            <input type="number" id="product-price" placeholder="Preço">
+            <input type="number" id="product-stock" placeholder="Estoque inicial">
+            <button onclick="addProduct()">Adicionar Produto</button>
+            <table id="products-table">
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Preço</th>
+                        <th>Estoque</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <div id="sales" class="section" style="display:none;">
+            <h1>Vendas</h1>
+            <select id="sale-store"></select>
+            <select id="sale-product"></select>
+            <input type="number" id="sale-quantity" placeholder="Quantidade">
+            <button onclick="registerSale()">Registrar Venda</button>
+            <table id="sales-table">
+                <thead>
+                    <tr>
+                        <th>Loja</th>
+                        <th>Produto</th>
+                        <th>Preço</th>
+                        <th>Quantidade</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <div id="stores" class="section" style="display:none;">
+            <h1>Lojas</h1>
+            <input type="text" id="store-name" placeholder="Nome da loja">
+            <button onclick="addStore()">Adicionar Loja</button>
+            <ul id="stores-list"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
